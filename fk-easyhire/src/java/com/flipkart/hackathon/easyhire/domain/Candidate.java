@@ -8,6 +8,7 @@ package com.flipkart.hackathon.easyhire.domain;
  * To change this template use File | Settings | File Templates.
  */
 public class Candidate {
+    String id;
     String name;
     String email;
     Object resume;

@@ -2,6 +2,8 @@ package com.flipkart.hackathon.easyhire.service;
 
 import com.flipkart.hackathon.easyhire.domain.Question;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * String: rishabh.goyal
@@ -13,6 +15,7 @@ public interface QuestionService {
 
     public void create(Question question);
     public Question read(String questionId);
+    public List<Question> readAll();
     public void update(Question question);
     public void delete(String questionId);
 

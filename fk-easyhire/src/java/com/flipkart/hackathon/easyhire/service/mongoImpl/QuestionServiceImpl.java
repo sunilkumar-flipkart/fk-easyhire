@@ -65,6 +65,26 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
+    public List<Question> readAll(){
+        List<Question> questions = new ArrayList<Question>();
+        List<DBObject> objects = store.readAll("fk-easyhire", "questions", new BasicDBObject());
+        for ( DBObject object : objects ){
+            String id = (String) object.get("_id");
+            String title = (String) object.get("title");
+            String text = (String) object.get("text");
+            Date createdOn = (Date) object.get("createdOn");
+            String creatorId = (String) object.get("creatorId");
+            String hint = (String) object.get("hint");
+            String answer = (String) object.get("answer");
+            List<String> tags = (List<String>) object.get("tags");
+            QuestionDifficultyLevel difficultyLevel = QuestionDifficultyLevel.valueOf((String) object.get("difficultyLevel"));
+            int numVotes = Integer.parseInt(object.get("numberOfVotes").toString());
+            questions.add(new Question(id, title, text, createdOn, creatorId, hint, answer, tags, difficultyLevel, numVotes));
+        }
+        return questions;
+    }
+
+    @Override
     public void update(Question question) {
         DBObject object = new BasicDBObject();
         object.put("_id", question.getId());

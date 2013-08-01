@@ -11,7 +11,25 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class InterviewRound {
-    Interviewer interviewer;
+    String interviewerId;
     Date interviewRoundDate;
-    Map<String, CandidateResponse> questionResponses;
+    Map<String, String> questionResponses;
+
+    public InterviewRound(String interviewerId, Date interviewRoundDate, Map<String, String> questionResponses) {
+        this.interviewerId = interviewerId;
+        this.interviewRoundDate = interviewRoundDate;
+        this.questionResponses = questionResponses;
+    }
+
+    public String getInterviewerId() {
+        return interviewerId;
+    }
+
+    public Date getInterviewRoundDate() {
+        return interviewRoundDate;
+    }
+
+    public Map<String, String> getQuestionResponses() {
+        return questionResponses;
+    }
 }

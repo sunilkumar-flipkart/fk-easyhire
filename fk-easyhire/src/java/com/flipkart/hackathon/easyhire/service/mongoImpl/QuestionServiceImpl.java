@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: rishabh.goyal
+ * String: rishabh.goyal
  * Date: 02/08/13
  * Time: 1:11 AM
  * To change this template use File | Settings | File Templates.
@@ -78,7 +78,7 @@ public class QuestionServiceImpl implements QuestionService {
         object.put("tags", question.getTags());
         object.put("difficultyLevel", question.getDifficultyLevel().name());
         object.put("numberOfVotes", 0);
-        store.update("fk-easyhire", "questions", object );
+        store.update("fk-easyhire", "questions", object);
     }
 
     @Override

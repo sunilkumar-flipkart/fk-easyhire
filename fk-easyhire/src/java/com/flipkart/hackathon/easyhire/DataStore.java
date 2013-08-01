@@ -3,11 +3,12 @@ package com.flipkart.hackathon.easyhire;
 import com.mongodb.*;
 
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
- * User: rishabh.goyal
+ * String: rishabh.goyal
  * Date: 02/08/13
  * Time: 1:34 AM
  * To change this template use File | Settings | File Templates.
@@ -28,6 +29,15 @@ public class DataStore {
     public DBObject read(String dbName, String collectionName, String id){
         DBObject queryObject = new QueryBuilder().put("_id").is(id).get();
         return mongoClient.getDB(dbName).getCollection(collectionName).findOne(queryObject);
+    }
+
+    public List<DBObject> readAll(String dbName, String collectionName, DBObject queryObject){
+        List<DBObject> objects = new ArrayList<DBObject>();
+        DBCursor cursor = mongoClient.getDB(dbName).getCollection(collectionName).find(queryObject);
+        while (cursor.hasNext()){
+            objects.add(cursor.next());
+        }
+        return objects;
     }
 
     public void update(String dbName, String collectionName, DBObject object){

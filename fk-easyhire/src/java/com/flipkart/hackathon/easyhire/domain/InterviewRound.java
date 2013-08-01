@@ -10,7 +10,7 @@ import java.util.Map;
  * Time: 11:56 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Round {
+public class InterviewRound {
     Interviewer interviewer;
     Date interviewRoundDate;
     Map<String, CandidateResponse> questionResponses;

@@ -9,7 +9,9 @@ import java.util.Date;
  * Time: 11:40 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Comments {
+public class Comment {
+    String id;
+    String questionId;
     User commentedBy;
     String comment;
     Date commentedOn;

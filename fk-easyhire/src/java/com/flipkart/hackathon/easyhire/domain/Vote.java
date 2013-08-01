@@ -10,8 +10,11 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class Vote {
+    String id;
     String questionId;
-    User voter;
+    String userId;
     VoteOption vote;
     Date votedOn;
+
+
 }

@@ -8,5 +8,5 @@ package com.flipkart.hackathon.easyhire.domain;
  * To change this template use File | Settings | File Templates.
  */
 public enum VoteOption {
-    UP, DOWN
+    UP, DOWN, NONE
 }

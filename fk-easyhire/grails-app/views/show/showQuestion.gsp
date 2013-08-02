@@ -14,8 +14,11 @@
         <tr> <td><%println(question.text)%> </td></tr>
     </table>
     <br/>
-
     <img src="${resource(dir: 'images', file: 'tu.png')}" width="40" height="40" onclick= "${remoteFunction(controller: 'show', action: 'vote', update: 'votingDone', params: [questionId: question.getId(), vote: VoteOption.UP.toString()])}" >
+    <%println(question.text)%>
+     <br/>
+    <g:link controller="edit" action="editQuestion" params="[questionId: question.getId()]">Edit</g:link>
+    <img src="${resource(dir: 'images', file: 'up-arrow.png')}" width="40" height="40" onclick= "${remoteFunction(controller: 'show', action: 'vote', update: 'votingDone', params: [questionId: question.getId(), vote: VoteOption.UP.toString()])}" >
     <%println("Votes: " + question.numberOfVotes)%>
     <img src="${resource(dir: 'images', file: 'thumbs-down.jpg')}" width="40" height="40" onclick= "${remoteFunction(controller: 'show', action: 'vote', update: 'votingDone', params: [questionId: question.getId(), vote: VoteOption.DOWN.toString()])}">
     <div id="votingDone"></div>

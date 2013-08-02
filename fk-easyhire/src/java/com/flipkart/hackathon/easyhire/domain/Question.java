@@ -86,4 +86,20 @@ public class Question {
     public int getNumberOfVotes() {
         return numberOfVotes;
     }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", createdOn=" + createdOn +
+                ", creatorId='" + creatorId + '\'' +
+                ", hint='" + hint + '\'' +
+                ", answer='" + answer + '\'' +
+                ", tags=" + tags +
+                ", difficultyLevel=" + difficultyLevel +
+                ", numberOfVotes=" + numberOfVotes +
+                '}';
+    }
 }

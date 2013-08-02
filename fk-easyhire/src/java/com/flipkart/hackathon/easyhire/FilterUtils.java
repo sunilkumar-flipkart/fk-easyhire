@@ -78,6 +78,10 @@ public class FilterUtils {
         return typeOperationMapping.get(keyToTypeMapping.get(key));
     }
 
+    public static Set<String> getValidKeys(){
+        return keyToTypeMapping.keySet();
+    }
+
     public static List<Filter> createFilterFromQueryParams(List<String> property, List<String> operators, List<String> values){
         List<Filter> filters = new ArrayList<Filter>();
         for( int i = 0 ; i < property.size(); i++ ){

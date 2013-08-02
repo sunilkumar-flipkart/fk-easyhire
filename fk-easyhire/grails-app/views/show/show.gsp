@@ -5,7 +5,7 @@
 		<meta name="layout" content="main"/>
 	</head>
 	<body>
-
+    <div>
     <div>
         <table class="table table-bordered table-striped row row-fluid">
 

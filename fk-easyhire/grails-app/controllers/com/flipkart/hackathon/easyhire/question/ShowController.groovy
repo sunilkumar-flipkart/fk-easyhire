@@ -1,5 +1,6 @@
 package com.flipkart.hackathon.easyhire.question
 
+import com.flipkart.hackathon.easyhire.FilterUtils
 import com.flipkart.hackathon.easyhire.domain.Comment
 import com.flipkart.hackathon.easyhire.domain.Question
 import com.flipkart.hackathon.easyhire.domain.Vote
@@ -25,5 +26,10 @@ class ShowController {
 
     def vote() {
         ShowService.writeVote(params.questionId, params.vote)
+    }
+
+    def search() {
+        return [keysToType:FilterUtils.keyToTypeMapping as grails.converters.JSON, typeToOperations:FilterUtils.typeOperationMapping as grails.converters.JSON]
+
     }
 }

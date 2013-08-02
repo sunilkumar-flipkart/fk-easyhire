@@ -2,14 +2,12 @@ package com.flipkart.hackathon.easyhire.service.mongoImpl;
 
 import com.flipkart.hackathon.easyhire.FilterUtils;
 import com.flipkart.hackathon.easyhire.domain.Filter;
+import com.flipkart.hackathon.easyhire.domain.VoteOption;
 import com.flipkart.hackathon.easyhire.service.DataStore;
 import com.flipkart.hackathon.easyhire.domain.Question;
 import com.flipkart.hackathon.easyhire.domain.QuestionDifficultyLevel;
 import com.flipkart.hackathon.easyhire.service.QuestionService;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.QueryBuilder;
+import com.mongodb.*;
 import org.bson.types.ObjectId;
 import org.junit.Test;
 
@@ -62,8 +60,32 @@ public class QuestionServiceImpl implements QuestionService {
         String answer = (String) object.get("answer");
         List<String> tags = (List<String>) object.get("tags");
         QuestionDifficultyLevel difficultyLevel = QuestionDifficultyLevel.valueOf((String) object.get("difficultyLevel"));
-        int numVotes = Integer.parseInt(object.get("numberOfVotes").toString());
+
+        int count = getQuestionCount(questionId);
+//        int numVotes = Integer.parseInt(object.get("numberOfVotes").toString());
+        int numVotes = count;
         return new Question(questionId, title, text, createdOn, creatorId, hint, answer, tags, difficultyLevel, numVotes);
+    }
+
+    public int getQuestionCount(String questionId){
+        MongoClient client = store.mongoClient;
+        DBObject queryObject = new QueryBuilder().put("questionId").is(questionId).get();
+        DBCursor cursor = client.getDB("fk-easyhire").getCollection("votes").find(queryObject);
+        int upVotes = 0;
+        int downVotes = 0;
+
+        while (cursor.hasNext()){
+            DBObject object = cursor.next();
+            String voteOption = (String) object.get("vote");
+
+            if ( voteOption.equalsIgnoreCase(VoteOption.DOWN.name()) ){
+                downVotes++;
+            }
+            if( voteOption.equalsIgnoreCase(VoteOption.UP.name())){
+                upVotes++;
+            }
+        }
+        return upVotes - downVotes;
     }
 
     @Override

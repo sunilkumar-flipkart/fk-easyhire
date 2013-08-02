@@ -40,6 +40,7 @@ public class VotingServiceImpl implements VotingService {
         object.put("vote", vote.getVote().name());
         object.put("votedOn", vote.getVotedOn());
         store.create("fk-easyhire", "votes", object);
+
     }
 
     @Override

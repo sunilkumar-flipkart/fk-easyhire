@@ -38,6 +38,6 @@ class ShowController {
         List<String> operators = new ArrayList<String>(Arrays.asList(params.operators))
         List<String> values = new ArrayList<String>(Arrays.asList(params.values))
 
-        render(actionUri: "show", controllerName: "show", model: [questions: ShowService.getQuestions(properties, operators, values)])
+        return [questions: ShowService.getQuestions(properties, operators, values)]
     }
 }

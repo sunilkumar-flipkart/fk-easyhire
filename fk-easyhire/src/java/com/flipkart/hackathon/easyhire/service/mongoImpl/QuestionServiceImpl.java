@@ -110,9 +110,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     public List<Question> readAll(ArrayList<String> properties, ArrayList<String> operators, ArrayList<String> values) {
         List<Filter> filters = FilterUtils.createFilterFromQueryParams(properties, operators, values);
-        System.out.println(filters);
         DBObject queryObject = FilterUtils.getQueryObject(filters);
-        System.out.println(queryObject);
         List<Question> questions = new ArrayList<Question>();
         List<DBObject> objects = store.readAll("fk-easyhire", "questions", queryObject);
         for ( DBObject object : objects ){

@@ -1,7 +1,6 @@
 package com.flipkart.hackathon.easyhire;
 
 import com.flipkart.hackathon.easyhire.domain.Filter;
-import com.mongodb.BasicDBList;
 import com.mongodb.DBObject;
 import com.mongodb.QueryBuilder;
 
@@ -116,7 +115,7 @@ public class FilterUtils {
         } else if (operator.equals(FilterOperation.CONTAINS)) {
             if (propertyType.equalsIgnoreCase(String.class.getSimpleName())) {
                 return new QueryBuilder().put(property).regex(Pattern.compile(".*" + value.toString() + ".*")).get();
-            } else if (propertyType.equalsIgnoreCase(BasicDBList.class.getSimpleName())) {
+            } else if (propertyType.equalsIgnoreCase(List.class.getSimpleName())) {
                 List<Object> values = (List<Object>) value;
                 return new QueryBuilder().put(property).all(values).get();
             }

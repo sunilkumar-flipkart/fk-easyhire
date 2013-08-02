@@ -35,4 +35,14 @@ public class Filter {
     public Object getValue() {
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "Filter{" +
+                "property='" + property + '\'' +
+                ", propertyType='" + propertyType + '\'' +
+                ", operator='" + operator + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }

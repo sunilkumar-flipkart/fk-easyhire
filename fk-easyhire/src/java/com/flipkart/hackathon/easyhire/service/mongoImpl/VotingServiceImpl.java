@@ -1,6 +1,6 @@
 package com.flipkart.hackathon.easyhire.service.mongoImpl;
 
-import com.flipkart.hackathon.easyhire.DataStore;
+import com.flipkart.hackathon.easyhire.service.DataStore;
 import com.flipkart.hackathon.easyhire.domain.Vote;
 import com.flipkart.hackathon.easyhire.domain.VoteOption;
 import com.flipkart.hackathon.easyhire.service.VotingService;

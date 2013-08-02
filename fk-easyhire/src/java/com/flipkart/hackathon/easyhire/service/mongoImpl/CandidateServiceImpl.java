@@ -1,6 +1,6 @@
 package com.flipkart.hackathon.easyhire.service.mongoImpl;
 
-import com.flipkart.hackathon.easyhire.DataStore;
+import com.flipkart.hackathon.easyhire.service.DataStore;
 import com.flipkart.hackathon.easyhire.domain.Candidate;
 import com.flipkart.hackathon.easyhire.service.CandidateService;
 import com.mongodb.BasicDBObject;

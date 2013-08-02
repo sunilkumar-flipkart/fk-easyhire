@@ -1,4 +1,4 @@
-package com.flipkart.hackathon.easyhire;
+package com.flipkart.hackathon.easyhire.service;
 
 import com.mongodb.*;
 

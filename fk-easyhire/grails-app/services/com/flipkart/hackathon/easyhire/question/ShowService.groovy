@@ -17,6 +17,10 @@ class ShowService {
         return questionService.readAll()
     }
 
+    def static getQuestions(properties, operators, values) {
+        return questionService.readAll(properties, operators, values)
+    }
+
     def static getQuestion(String questionId) {
         return questionService.read(questionId)
     }

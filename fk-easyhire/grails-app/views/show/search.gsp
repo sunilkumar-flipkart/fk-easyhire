@@ -48,9 +48,12 @@
     </thead>
     <tbody>
         <tr>
-            <td><g:select name="attributes" id="attribute" from="${com.flipkart.hackathon.easyhire.FilterUtils.getValidKeys()}" onChange="load_valid_operators(this)"></g:select></td>
-            <td><g:select name="operators" id="operators" from=""></g:select></td>
-            <td><g:textField name="values" id="values" placeholder="Enter Value"></g:textField></td>
+            <g:form controller="show" action="displaySearch">
+                <td><g:select name="attributes" id="attribute" from="${com.flipkart.hackathon.easyhire.FilterUtils.getValidKeys()}" onChange="load_valid_operators(this)"></g:select></td>
+                <td><g:select name="operators" id="operators" from=""></g:select></td>
+                <td><g:textField name="values" id="values" placeholder="Enter Value"></g:textField></td>
+                <td><g:submitButton name="submit"></g:submitButton></td>
+            </g:form>
         </tr>
     </tbody>
 </table>

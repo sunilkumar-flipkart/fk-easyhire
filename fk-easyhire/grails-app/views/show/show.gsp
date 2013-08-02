@@ -3,20 +3,27 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Show Questions</title>
-        <link rel="stylesheet" href="${resource(dir: 'css', file: 'template.css')}" type="text/css">
 	</head>
 	<body>
+
     <div>
-        <table border="solid">
+        <table class="table table-bordered table-striped row row-fluid">
+
+            <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Questions</th>
+            </tr>
+            </thead>
             <tbody>
+                <%i=1%>
                 <% for(Question question: questions) {%>
                     <tr>
-                        <td><g:link controller="show" action="showQuestion" params="[questionId: question.getId()]"> ${question.getTitle()} - it is Title</g:link></td>
+                    <td >${i}</td>
+                    <td><h5><g:link controller="show" action="showQuestion" params="[questionId: question.getId()]"> ${question.getTitle()}<br/></g:link></h5>
+                    ${question.getText()}</td>
                     </tr>
-                    <tr>
-                        <td>${question.getText()} - it is Text</td>
-                    </tr>
+                    <%i++%>
                 <%}%>
             </tbody>
         </table>

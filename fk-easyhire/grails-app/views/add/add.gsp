@@ -3,26 +3,46 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Add Questions</title>
-        <link rel="stylesheet" href="${resource(dir: 'css', file: 'template.css')}" type="text/css">
 	</head>
 	<body>
+    <div class="page-header">
+        <h1>Add Question</h1>
+    </div>
         <%if("$result" == "null") {%>
         <div>
-            <g:form controller="add" action="add">
-                <label for="title">Title:</label><br/>
-                <g:textArea name="title" rows="5" cols="100"></g:textArea><br/><br/>
-                <label for="content">Question:</label><br/>
-                <g:textArea name="content" rows="5" cols="100"></g:textArea><br/><br/>
-                <label for="hint">Hint:</label><br/>
-                <g:textArea name="hint" rows="5" cols="100"></g:textArea><br/><br/>
-                <label for="answer">Answer:</label><br/>
-                <g:textArea name="answer" rows="5" cols="100"></g:textArea><br/><br/>
-                <label for="tags">Tags:</label><br/>
-                <g:textArea name="tags" rows="1" cols="100"></g:textArea><br/><br/>
-                <label for="difficulty">Difficulty:</label><br/>
-                <g:select name="difficulty" from="${QuestionDifficultyLevel.values()}" keys="${QuestionDifficultyLevel.values()*.name()}"></g:select><br/><br/>
-                <g:submitButton name="submit"></g:submitButton>
+            <table class="table-condensed row row-fluid">
+                <g:form controller="add" action="add">
+                <tr>
+                    <td><label for="title"><h5>Title</h5></label><br/></td>
+                    <td><g:textField name="title" rows="5" cols="100" class="input-large" ></g:textField><br/><br/></td>
+
+                </tr>
+                <tr>
+                    <td><label for="content"><h5>Question</h5></label><br/></td>
+                    <td><g:textArea name="content" rows="5" cols="100"  ></g:textArea><br/><br/></td>
+                </tr>
+                <tr>
+                    <td><label for="hint"><h5>Hint</h5></label><br/></td>
+                    <td><g:textField name="hint" rows="5" cols="100"></g:textField><br/><br/></td>
+                </tr>
+                <tr>
+                    <td><label for="answer"><h5>Answer</h5></label><br/></td>
+                    <td><g:textArea name="answer" rows="5" cols="100"></g:textArea><br/><br/></td>
+                </tr>
+                <tr>
+                    <td><label for="tags"><h5>Tags</h5></label><br/></td>
+                    <td><g:textArea name="tags" rows="1" cols="100"></g:textArea><br/><br/></td>
+                </tr>
+                <tr>
+                    <td><label for="difficulty"><h5>Difficulty Level</h5></label><br/></td>
+                    <td><g:select name="difficulty" from="${QuestionDifficultyLevel.values()}" keys="${QuestionDifficultyLevel.values()*.name()}"></g:select><br/><br/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><g:submitButton name="submit" value="submit" class="btn btn-primary"></g:submitButton></td>
+                </tr>
+            </table>
+
+
             </g:form>
         </div>
         <%} else if("$result" =="submitted") {%>

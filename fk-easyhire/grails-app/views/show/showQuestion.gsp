@@ -3,37 +3,49 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title><%println(question.title)%></title>
     <g:javascript library="jquery" />
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'template.css')}" type="text/css">
 </head>
 <body>
+<div> <h2><%println(question.title)%> </h2></div>
 <div>
-    <h1><%println(question.title)%></h1>
+
     <br/>
+    <table class="table table-bordered table-striped row row-fluid">
+        <tr> <td><%println(question.text)%> </td></tr>
+    </table>
     <br/>
-    <%println(question.text)%>
-     <br/>
-    <img src="${resource(dir: 'images', file: 'up-arrow.png')}" width="40" height="40" onclick= "${remoteFunction(controller: 'show', action: 'vote', update: 'votingDone', params: [questionId: question.getId(), vote: VoteOption.UP.toString()])}" >
+
+    <img src="${resource(dir: 'images', file: 'tu.png')}" width="40" height="40" onclick= "${remoteFunction(controller: 'show', action: 'vote', update: 'votingDone', params: [questionId: question.getId(), vote: VoteOption.UP.toString()])}" >
     <%println("Votes: " + question.numberOfVotes)%>
-    <img src="${resource(dir: 'images', file: 'down-arrow.png')}" width="40" height="40" onclick= "${remoteFunction(controller: 'show', action: 'vote', update: 'votingDone', params: [questionId: question.getId(), vote: VoteOption.DOWN.toString()])}">
+    <img src="${resource(dir: 'images', file: 'thumbs-down.jpg')}" width="40" height="40" onclick= "${remoteFunction(controller: 'show', action: 'vote', update: 'votingDone', params: [questionId: question.getId(), vote: VoteOption.DOWN.toString()])}">
     <div id="votingDone"></div>
-    <table>
+
+    <li class="active"><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
+    <i class="icon-thumbs-down"></i>
+    <table class="table table-bordered table-striped row row-fluid">
+        <thead>
+            <th>Comments</th>
+        </thead>
         <tbody>
         <% for(Comment comment: comments) { %>
         <tr>
-            <td> ${comment.getComment()} <br/> ${comment?.getCommentedBy()}  on ${comment?.getCommentedOn()} </td>
+            <td> <span class="bar"> <b> ${comment?.getCommentedBy()} </b> &nbsp; ${comment.getComment()} </span> <br/> <div class="alert-info">  on ${comment?.getCommentedOn()} </div></td>
         </tr>
         <%}%>
+        <tr>
+            <td>
+                <g:formRemote name="comment" update="updateMe" url="[controller: 'show', action:'addComment', params: [questionId: question.getId()]]" onComplete="document.location.reload()">
+                    <g:textArea name="comment" rows="5" cols="100" style="width: 500pt" placeholder="Write your comment.."></g:textArea>
+                    <br/>
+                    <g:submitButton name="submit" value="submit"></g:submitButton>
+                </g:formRemote>
+                <div id="updateMe"></div>
+            </td>
+        </tr>
         </tbody>
     </table>
 
-    <g:formRemote name="comment" update="updateMe" url="[controller: 'show', action:'addComment', params: [questionId: question.getId()]]" onComplete="document.location.reload()">
-        <g:textArea name="comment" rows="5" cols="100"></g:textArea>
-        <br/>
-        <g:submitButton name="submit"></g:submitButton>
-    </g:formRemote>
-    <div id="updateMe"></div>
+
 </div>
 </body>
 </html>

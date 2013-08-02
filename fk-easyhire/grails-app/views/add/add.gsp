@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
+        <title>Add Question</title>
 	</head>
 	<body>
     <div class="page-header">

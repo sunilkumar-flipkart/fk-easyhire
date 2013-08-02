@@ -45,14 +45,14 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Questions <b class="caret"></b></a>
+                        <li  class="active"><a href="#about">About</a></li>
+                        <div class="dropdown">
+                            <a href="/fk-easyhire/" class="dropdown-toggle" data-toggle="dropdown"  class="active">Questions <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Add</a></li>
-                                <li><a href="#">View</a></li>
+                                <li  class="active"><a href="#">Add</a></li>
+                                <li  class="active"><a href="#">View</a></li>
                             </ul>
-                        </li>
+                        </div>
                     </ul>
                     <form class="navbar-form pull-right">
                         <input class="span2" type="text" placeholder="LDAP">
@@ -64,7 +64,7 @@
         </div>
     </div>
 
-        <div class="container-narrow container-narrow">
+        <div class="container-narrow">
             <g:layoutBody/>
         </div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>

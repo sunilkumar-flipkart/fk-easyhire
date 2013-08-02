@@ -15,7 +15,7 @@ class AddService {
         for(String string : tagArr) {
             tagList.add(string.trim())
         }
-        Question question = new Question(title, content, new Date(), "rishabh", hint, answer, tagList, QuestionDifficultyLevel.valueOf(difficulty), 0)
+        Question question = new Question(title, content, new Date(), "prakhar", hint, answer, tagList, QuestionDifficultyLevel.valueOf(difficulty), 0)
         service.create(question)
         return true;
     }
